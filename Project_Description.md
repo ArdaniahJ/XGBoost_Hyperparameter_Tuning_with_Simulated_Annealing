@@ -12,7 +12,7 @@ Support Vector Regression (SVR);
         + political crises
 <br> It takes all the many high-dimensional data with these variable into account when making predictions <br>
     + SVR can handle __large datasets__
-    + SVR can handle __outliers__: ie; Stock prices are often affected by unpredictable events that can cause _extreme fluctuations_. SVR is robust to outliers, which means it is less affected by these extreme fluctuations than other algorithm. 
+    + SVR can handle __outliers__: ie; Stock prices are often affected by unpredictable events that can cause _extreme fluctuations_. SVR is robust to outliers, thus being less affected by these extreme fluctuations than other algorithm. 
     + SVR can handle __a large margin of error__: handling a huge margin of error between prediction and actual value
     
 ## So...why SVR for this project?
