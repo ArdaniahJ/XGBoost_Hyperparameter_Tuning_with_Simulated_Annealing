@@ -1,6 +1,5 @@
 # SVR and Simulated Annealing
 
-## SVR in Time Series Forecasting
 Support Vector Regression (SVR);
 + is a type of algorithm that can be used for both __regression and classification problems__.
 + SVM is often used in time series forecasting due to its characteristics:
