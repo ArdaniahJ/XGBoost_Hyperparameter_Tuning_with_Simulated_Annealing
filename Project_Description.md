@@ -47,15 +47,33 @@ Hence, finding the optimal combination of hyperparameters is crucial for the SVR
     
 ### Metrics used in this project
 Since this is a time series regression problem, thus a metric for regression as below is used to evaluate the performance of the model;
-1. __MAE__: measures the average absolute difference between y_pred and y_test 
-    + _&darr; (closer) to 0, the &uarr; (higher) accuracy of the model_ <br>`MAE = ( ∑|actual - pred|)/datapoints`
-2. __MSE__: measures the average squared difference between y_pred and y_test 
-    + _&darr; (closer) to 0, the &uarr; (higher) accuracy of the model_ <br>`MSE =  ∑(actual- pred)^2/datapoints`
+1. __MAE__: measures the average absolute difference between pred and actual values.
+    + _&darr; (closer) to 0, the &uarr; (higher) accuracy of the model_ <br>`MAE = ( ∑|actual - pred|)/#datapoints`
+2. __MSE__: measures the average squared difference between pred and actual values. 
+    + _&darr; (closer) to 0, the &uarr; (higher) accuracy of the model_ <br>`MSE =  ∑(actual- pred)^2/#datapoints`
 3. __R2__: measures of how well the model fits the data, with a value of 1 inidicating a perfect fit. 
     + it doesn't measure the accuracy of the predictions but the correlation of X and y of the model.
-    + _the &uarr; (higher) the R2, the better the model_
+    + _the &uarr; (higher) the R2, the &uarr; (better) the model_
     + if R2 is 1, it means all variation of y is explained by X (tho it's rare in real world)
-    + __R2 > 0.75 is considered a strong correlation__ <br>`R2 = 1 - ( ∑(y_pred - y_mean)^2/∑(y_actual - y_mean)^2) `
+    + __R2 > 0.75 is considered a strong correlation__ <br>`R2 = 1 - ( ∑(y_pred - y_mean)^2/∑(y_actual - y_mean)^2)`
+4. __RMSE__: is the square root of the MSE. 
+    + Squared error (__L2__) is a row-level error calc where the _(pred - actual)_ is squared. 
+    + RMSE helps to understand the model performance over the whole dataset. 
+    + it's in the same scale as the pred unit. 
+    + it ranges _from 0 to infinity_, _&darr; (closer) to 0, the &uarr; (higher) the accuracy of the model_ <br>`RMSE = √ MSE`
+5. __MAPE__: is the ∑ of MAE. 
+    + used when communicating with end users
+    + not advisable to use when _actual values are closer to 0 due to the division by zero error_
+    + general rule of thumb for MAPE is as below; <br>`MAPE = {1/#datapoints . (∑|actual - pred|/actual)} x 100%`
+
+| MAPE  | Interpretation|
+|---|---|
+| < 10%   | Very good  |
+| 10 - 20%  | Good |
+| 20 - 50%  | OK  |
+| > 50%  | Not good |
+
+
 
 
 
