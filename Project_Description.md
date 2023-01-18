@@ -15,7 +15,7 @@ Support Vector Regression (SVR);
     + SVR can handle __outliers__: ie; Stock prices are often affected by unpredictable events that can cause _extreme fluctuations_. SVR is robust to outliers, thus being less affected by these extreme fluctuations than other algorithm. 
     + SVR can handle __a large margin of error__: handling a huge margin of error between prediction and actual value
     
-## So...why SVR for this project?
+### So...why SVR for this project?
 SVR-based models __do not suffer from overfitting problems__ (_high accuracy for training dataset and low accuracy for test dataset_) as they are based on __Structual Risk Minimization (SRM) principle__[^1].  (_tuning the capacity of the classifier to the available amount of training data_) which always `guarantee a unique, global and optimal solution.`
 
 
