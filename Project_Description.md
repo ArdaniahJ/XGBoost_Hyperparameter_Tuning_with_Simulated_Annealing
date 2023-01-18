@@ -47,7 +47,15 @@ Hence, finding the optimal combination of hyperparameters is crucial for the SVR
     
 ### Metrics used in this project
 Since this is a time series regression problem, thus a metric for regression as below is used to evaluate the performance of the model;
-1. MAE: measures the average absolute difference between y_pred and y_test <br>(tldr; `MAE = ( ∑|ground_truth - pred|)/datapoints` )
+1. __MAE__: measures the average absolute difference between y_pred and y_test 
+    + _&darr; (closer) to 0, the &uarr; (higher) accuracy of the model_ <br>`MAE = ( ∑|actual - pred|)/datapoints`
+2. __MSE__: measures the average squared difference between y_pred and y_test 
+    + _&darr; (closer) to 0, the &uarr; (higher) accuracy of the model_ <br>`MSE =  ∑(actual- pred)^2/datapoints`
+3. __R2__: measures of how well the model fits the data, with a value of 1 inidicating a perfect fit. 
+    + it doesn't measure the accuracy of the predictions but the correlation of X and y of the model.
+    + _the &uarr; (higher) the R2, the better the model_
+    + if R2 is 1, it means all variation of y is explained by X (tho it's rare in real world)
+    + __R2 > 0.75 is considered a strong correlation__ <br>`R2 = 1 - ( ∑(y_pred - y_mean)^2/∑(y_actual - y_mean)^2) `
 
 
 
