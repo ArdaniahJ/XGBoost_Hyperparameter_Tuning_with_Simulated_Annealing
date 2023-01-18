@@ -23,12 +23,44 @@ SVR-based models __do not suffer from overfitting problems__ (_high accuracy for
 [^2]:  In SA, the temperature variable is used to simulate the annealing heating process. 
 
 ### Annealing & Simulated Annealing
-+ __Annealing__: involves heating and cooling a metal/material to alter its physical properties due to the changes in its internal structure. as the metal cools, its new structure becomes fixed, consequently causing the mtal to retain its newly obtained properties.
++ __Annealing__: comes from metallurgy. involves heating and cooling a metal/material to alter its physical properties due to the changes in its internal structure. as the metal cools, its new structure becomes fixed, consequently causing the mtal to retain its newly obtained properties.
+
+<p align="center">
+  <img src="https://github.com/ArdaniahJ/Forecasting_MTCO_Prices_with_SVR_through_Simulated_Annealing/blob/afc231b20e47ec56a34816c69f18c2cc9ed2b6a2/water%20sort%20ring%20game.jpeg" width=250 />
+</p>
+
 + __Simulated Annealing__: is _a way of finding the best solution to a problem_, just like how a metalworker finds the best shape for a piece of metal by heating it up and then cooling it down[^2]
+    + Take the water bubble rings toy as an analogy. when then buttons are pressed, the rings move inside the water. the aim of the game is _to get as many rings hooked possible_. 
+    + But, how to play? intuitively, one would first start by pressing the buttons vigorously and by eyeballing to see if all the rings hooked without worrying about the proper solution; just randomly play.
+    +  once some of the rings hooked in the hooks, one tend to be more careful. after that, a serious and deliberate move will follow suits. eventually when the final steps to win appears, one will be extremely cautious and only move after a careful and gracious plan. 
+    +  __That's the intuition behind the SA__.
+    +  At the beginning, you dont care if youre actually moving towards the good solution and you accept bad moves with bad configurations as well. 
+    +  But as you progress towards the solution, you tend to be more careful and only selecting good moves.
+    +  to formulate any problem in order to apply algo like SA, every problems needs to have a way to define how good a given configuration is. 
+    +  for this particular toy game, given the configuration of this toy, one can tell how good the solution is by checking the number of rings that are hooked. 
+    +  hence, every system or every problem that to be solved needs to have a way to describe the goodness or the fitness of the solution for the problem.
+    +  in algo words, we need to have the mechanism to define the energy of the system.
+    +  taking this formula into consideration <br> `P(ΔE) = e^{-(ΔE/k.t)}` or `P(E(next) - E(current)) = e^(-deltaE/T)` where;
+        + __E__: _energy of the system_. 
+            + everytime the system mechanism goes through a change of config, the change in energy [delta E (ΔE)] can be computed.
+    + in the toy game, one can play the game in a specific way (ie; focus only for one hook). if that method is used, one will end up in a deadlock where only one hook will have lots of rings but the other is empty. 
+    + however, one may play vigorously but this'll removes lots of hooked rings leading to decreased in playing tempo but takes a longer time to finish instead.  this describes `local maximum or local minimum`.
+    + when all possbile configs of a given system are plotted on X & y axes, the corresponding energy are able to be computed. Energy landscape will look like this (refer the formula).
+        + _&uarr; (high) values correspond to &uarr; (maximum) energy_. in the hooked rings case, since max hooked rings is desired; hence this is a __maximization problem__ and max value of energy is needed for this particular problem. 
+        + places like these in the E landscape where the energy is &uarr; (_high_) are known as `local maxima or local minima`.
+        + these are the points where the system can get stuck and cannot find the global maximum.
+        + so, SA algo is designed to avoid getting stuck in the local maxima or minima by __introducing a probability of accepting bad moves or bad configs__. this is known as the `acceptance probability`. 
+        + as the algorithm progresses, the acceptance probability &darr; (_decreases_), and becomes more careful and deliberate in its moves.
+
+
+
+
+
     + the temperature, __θ__ is initially set to &uarr; (_high_). It then allows to slowly to &darr; (_cool_) as the algorithm runs. 
     + when the __θ__ is &uarr; (_high_), the algo'll be allowed with more freq to accept solutions that are worse than the current solution. _this gives the ability to jump out of any local optimus it finds itself in early execution_
     + as the __θ__ &darr; (_reduced_), so is the chane of accepting worse solutions, therefpre allowing the algo to gradually focus on area of search space in which hopefully, a close to optimum solution can be found.
     + this gradual cooling process is what makes the SA algo remarkbly effective at finding a close to optimum solution when dealing with large problems which contain numerious local optimums. 
+
 
 
 
