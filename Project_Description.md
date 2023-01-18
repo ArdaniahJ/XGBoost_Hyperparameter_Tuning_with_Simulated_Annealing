@@ -20,8 +20,16 @@ SVR-based models __do not suffer from overfitting problems__ (_high accuracy for
 
 
 [^1]: SRM principle addresses overfitting problem by balancing the model's complexity against its success at fitting the training data. This gives better results than empricial risk minimization (ERM).
+[^2]:  In SA, the temperature variable is used to simulate the annealing heating process. 
 
-### Annealing
+### Annealing & Simulated Annealing
++ __Annealing__: involves heating and cooling a metal/material to alter its physical properties due to the changes in its internal structure. as the metal cools, its new structure becomes fixed, consequently causing the mtal to retain its newly obtained properties.
++ __Simulated Annealing__: is _a way of finding the best solution to a problem_, just like how a metalworker finds the best shape for a piece of metal by heating it up and then cooling it down[^2]
+    + the temperature, __θ__ is initially set to &uarr; (_high_). It then allows to slowly to &darr; (_cool_) as the algorithm runs. 
+    + when the __θ__ is &uarr; (_high_), the algo'll be allowed with more freq to accept solutions that are worse than the current solution. _this gives the ability to jump out of any local optimus it finds itself in early execution_
+    + as the __θ__ &darr; (_reduced_), so is the chane of accepting worse solutions, therefpre allowing the algo to gradually focus on area of search space in which hopefully, a close to optimum solution can be found.
+    + this gradual cooling process is what makes the SA algo remarkbly effective at finding a close to optimum solution when dealing with large problems which contain numerious local optimums. 
+
 
 
 
