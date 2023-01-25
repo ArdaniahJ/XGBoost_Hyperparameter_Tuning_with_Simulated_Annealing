@@ -115,6 +115,8 @@ Since this is a time series regression problem, thus a metric for regression as 
 
 
 #
+SA finds the __subset of features__ that gives the __best predictive model performance__ amongst many possible subset combinations.
+
 SA improves SVR strategy through introduction of two elements;
 1. Metropolis algorithm - 
     + in which some states that do not improve energy are accepted when they serve to allow the solver to explore more of the possible space of solutions. 
@@ -152,3 +154,16 @@ The SA algo consists of a discrete time inhomogeneus Markov Chain x(t).
     ```
     
     Metropolis cycle is repeated until thermal equilibrium is reached. 
+    
+# Code Explanation
+
+In this project, a `non-greedy` approach driven by the randomness imparted in the algorithm will be used. 
++ this approach can reassess previous subsets and move in a direction that is initially unfavourable if there appears to be a potential benefit in the long run. 
++ as a result, simulated annealing has a greater ability to escape local optima and find the global best subset of features. 
++ it also creates a higher probability of capturing key features interaction, especially if these interactions are significant only if the features co-occur in a subset. 
+
+1. Generate a random initial subset of features to form the current state. This step can be done arbitrarily by randomly selecting 50% of the original features. 
+2. Evaluate model performance on the current subset to get an intial performance metric.
+`def model_training` runs a SVR on chosen current & constant parameters to obtain the F1 Score; where lower scores is better, hence `metric < prev_metric` (current metric must be lower than the prev metric).
+
+[^3]: https://towardsdatascience.com/feature-selection-with-simulated-annealing-in-python-clearly-explained-1808db14f8fa
