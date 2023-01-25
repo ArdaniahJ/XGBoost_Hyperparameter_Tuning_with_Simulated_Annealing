@@ -114,8 +114,41 @@ Since this is a time series regression problem, thus a metric for regression as 
 | > 50%  | Not good |
 
 
+#
+SA improves SVR strategy through introduction of two elements;
+1. Metropolis algorithm - 
+    + in which some states that do not improve energy are accepted when they serve to allow the solver to explore more of the possible space of solutions. 
+    + such "bad" states are allowed using the Boltzman criterion ` e−ΔJ/T > rnd(0, 1)` where;
+        + ΔJ is the change of energy
+        + T is a temperature 
+        + rnd(0,1) is a random number in the interval [0,1)
+        + J = cost function. it corresponds to the free energy in the case of annealing.
+        + if T is large, many "bad" states are accepted and a large part of solution spaces is accessed. 
 
+2. Lower the Temperature.
+    + After visiting many states and observing that the J (cost function) declies only slowly;
+        + one lowers the temperature; thus limits the size of allowed "bad" states.
+    + After lowering the temperature several times to a low value;
+        + one may then "quench" the process by accepting only "good" states in order to find the local minimum of the J.
 
+# 
+The elements of SA are;
++ A finite set of S
++ A cost function, J, defined on S. Let S* ⊂ S be the global minima of J
++ For each i ∈ S, a set S(i) ⊂ S − i is called the set of neighbors of i.
++ For every i, a collection of positive coefficients qij, j ∈ S(i), such that Σj∈S(i) qij = 1.
+    + It is assumed that j ∈ S(i) if and only if i ∈ S(j).
++ A nonincreasing function T : N → (0,∞), called the cooling schedule. Here N is the set of positive integers, and T(t) is called the temperature al time t.
++ An initial state x(0) ∈ S.
 
-
-
+The SA algo consists of a discrete time inhomogeneus Markov Chain x(t).
++ If the current x(t) = i; choose a neighbor j of i at random; 
+    + the probability that any particular  j ∈ S(i) is selected is equal to qij.
+    + once j is chosen, then next state x(t+1) is determined as follows;
+    ```
+    if J(j)≤J(i) then x(t+1)=j
+    if J(j)≤J(i) then x(t+1)=j with probability e−(J(j)−J(i))/T(t)%
+    else x(t+1)=i
+    ```
+    
+    Metropolis cycle is repeated until thermal equilibrium is reached. 
