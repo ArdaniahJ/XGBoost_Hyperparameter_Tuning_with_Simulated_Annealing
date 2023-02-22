@@ -1,4 +1,4 @@
-# SVR and Simulated Annealing
+# XGBoost and Simulated Annealing
 
 [^1]: SRM principle addresses overfitting problem by balancing the model's complexity against its success at fitting the training data. This gives better results than empricial risk minimization (ERM).
 [^2]:  In SA, the temperature variable is used to simulate the annealing heating process. 
