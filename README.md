@@ -6,8 +6,8 @@
 
 This repository contains the code and implementation details for using simulated annealing to tune hyperparameters for XGBoost in the context of detecting financial fraud credit card transactions. This approach can help improve the performance of XGBoost and enhance the model's ability to detect fraudulent transactions.
 
-
-The objective of this project is to develop a robust and accurate model 
+### Expected Industry Tangible Outcome
+Optimized financial fraud detection model by tuning XGBoost hyperparameters with Simulated Annealing with a target to achieve 10% accuracy improvements and 5% reduction in fraud losses for a banking client, and over $1M in cost savings returns over the course of a year.
 
 ## Dataset
 The dataset used in this project is the Credit Card Fraud Detection from: [ceicdata](https://www.ceicdata.com/en/malaysia/credit-card-statistics). 
